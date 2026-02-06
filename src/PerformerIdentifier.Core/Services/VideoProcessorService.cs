@@ -53,7 +53,7 @@ public class VideoProcessorService
             var timestamp = TimeSpan.FromSeconds(seconds);
             var frameData = await _frameExtractor.ExtractFrameAsync(videoPath, timestamp, cancellationToken);
             var detections = await _detectionService.DetectFacesAsync(
-                frameData, metadata.Width, metadata.Height, cancellationToken: cancellationToken);
+                frameData, metadata.Width, metadata.Height, 0.5f, cancellationToken);
 
             foreach (var detection in detections)
             {
