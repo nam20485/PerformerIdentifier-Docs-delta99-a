@@ -1,0 +1,9 @@
+mutation {
+  resolveReviewThread(input: { clientMutationId: "resolve5", threadId: "PRRC_kwDORJgJks6lRnu5" }) {
+    clientMutationId
+    thread {
+      id
+      isResolved
+    }
+  }
+}

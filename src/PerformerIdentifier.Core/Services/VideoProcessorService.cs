@@ -34,6 +34,11 @@ public class VideoProcessorService
     /// <param name="progress">Optional progress reporter.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
     /// <returns>Collection of detection results across all frames.</returns>
+    /// <remarks>
+    /// The frame data returned by ExtractFrameAsync is expected to be in RGB24 format (3 bytes per pixel).
+    /// The byte array contains raw pixel data with interleaved RGB channels (R, G, B, R, G, B, ...).
+    /// This format is compatible with the DetectFacesAsync method which expects raw image bytes.
+    /// </remarks>
     public async Task<IReadOnlyList<DetectionResult>> ProcessVideoAsync(
         string videoPath,
         double intervalSeconds = 1.0,

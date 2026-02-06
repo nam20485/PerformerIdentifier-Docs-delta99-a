@@ -17,11 +17,11 @@
      * Set up dependency injection containers within App.xaml.cs.  
    * **Deliverable:** A compiling solution with passing unit tests for the core logic (mocked dependencies).  
 2. **Phase 2: UI Construction & Media Integration (Days 6-10)**  
-   * **Objective:** Build the visible layer of the application using WinUI 3\.  
+   * **Objective:** Build the visible layer of the application using Avalonia UI v11+\.  
    * **Key Tasks:**  
-     * Construct the MainWindow.xaml layout using a Grid-based design for responsive resizing.  
-     * Implement the MediaPlayerElement for handling video playback.  
-     * Create the overlay system: a transparent Canvas or ItemsControl layered precisely over the video player to draw bounding boxes.  
+     * Construct the MainWindow.axaml layout using a Grid-based design for responsive resizing.  
+     * Implement the media player control for handling video playback.  
+     * Create the overlay system: a transparent Canvas layered precisely over the video player to draw bounding boxes.  
      * Bind the UI controls to the MainViewModel using the CommunityToolkit.Mvvm \[RelayCommand\] and \[ObservableProperty\] attributes.  
    * **Deliverable:** A functional GUI where users can open video files and see them play, with placeholder graphical overlays.  
 3. **Phase 3: Intelligence Pipeline & Logic Integration (Days 11-15)**  
@@ -60,7 +60,7 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
   * **GPU Dispatching:** Implements IFaceDetectionService using Microsoft.ML.OnnxRuntime.DirectML. It handles the complex task of converting standard images into hardware-accelerated tensors.  
   * **Media Extraction:** Implements IVideoFrameExtractor using a wrapper around the **FFmpeg** CLI tool to seek specific timestamps and extract raw pixel data efficiently.  
 * **The UI (Application Layer):**  
-  * The "Presentation" layer built with **WinUI 3**.  
+  * The "Presentation" layer built with **Avalonia UI v11+**.  
   * **Orchestration:** It is responsible for Composition Root (Dependency Injection) setup.  
   * **Interaction:** Handles file pickers, video playback controls (Play/Pause/Seek), and the visualization of inference results (drawing red/green boxes around faces).  
   * **State Management:** Uses the **MVVM (Model-View-ViewModel)** pattern to keep the UI responsive, processing the heavy AI workload on background threads while updating the UI via the Dispatcher.
@@ -158,7 +158,7 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
 
 ## **Containerization: Docker**
 
-* *Current Status:* Not applicable for this specific release. This is a **Desktop Client** relying on Windows-specific UI frameworks (WinUI 3\) and hardware APIs (DirectML) that are not easily containerized in standard Linux Docker environments.  
+* *Current Status:* Not applicable for this specific release. This is a **Desktop Client** with platform-specific optimizations (DirectML on Windows) that are not easily containerized in standard Linux Docker environments.  
 * *Future Scope:* The PerformerIdentifier.Core library is .NET Standard compatible. A future "Headless Server" version could be wrapped in a Docker container to expose a REST API, processing videos uploaded via HTTP.
 
 ## **Containerization: Docker Compose**
@@ -191,12 +191,12 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
 
 ## **Language**
 
-* **C\#** \- Selected for its robust type safety, extensive standard library, and seamless integration with the Microsoft ecosystem (WinUI 3, DirectML).
+* **C\#** \- Selected for its robust type safety, extensive standard library, and excellent cross-platform capabilities with Avalonia UI.
 
 ## **Language Version**
 
 * **.NET v10**  
-  * **Reasoning:** Utilizing the latest .NET release to take advantage of performance improvements, enhanced language features, and modern runtime capabilities for WinUI 3 framework and compatibility with the Microsoft.ML.OnnxRuntime packages.
+  * **Reasoning:** Utilizing the latest .NET release to take advantage of performance improvements, enhanced language features, and modern runtime capabilities for Avalonia UI framework and compatibility with the Microsoft.ML.OnnxRuntime packages.
 
 ## **Include global.json?**
 
@@ -214,8 +214,8 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
 
 ### **Core Technologies**
 
-* **App Framework:** **WinUI 3 (Windows App SDK 1.5+)**  
-  * The modern native UI stack for Windows, offering fluid animations, modern controls, and high-DPI support.  
+* **App Framework:** **Avalonia UI v11+**  
+  * A modern cross-platform UI framework for .NET, offering fluid animations, modern controls, and high-DPI support across Windows, macOS, and Linux.  
 * **ML Engine:** **ONNX Runtime (v1.17+)**  
   * A high-performance inference engine for machine learning models. Chosen for its wide hardware support and interoperability.  
 * **Database:** **SQLite** with **Entity Framework Core (v8.0)**  
@@ -225,7 +225,7 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
 
 ### **Key NuGet Packages & Justification**
 
-1. Microsoft.WindowsAppSDK: Required for the WinUI 3 runtime and windowing system.  
+1. Avalonia: Required for the cross-platform Avalonia UI framework and windowing system.  
 2. Microsoft.ML.OnnxRuntime.DirectML: Provides the GPU-accelerated execution provider for Windows.  
 3. Microsoft.ML.OnnxRuntime: The base runtime; used as a fallback if DirectML fails (CPU execution).  
 4. SixLabors.ImageSharp: A fully managed, cross-platform image manipulation library. Used to crop faces, resize images to model input dimensions (e.g., 112x112), and normalize pixel data.  
@@ -248,8 +248,8 @@ PerformerIdentifier.sln
 │   │   ├── Services/                  \# DirectML & FFmpeg specific implementations  
 │   │   └── Imaging/                   \# Bitmap \<-\> Tensor conversion logic  
 │   │  
-│   └── PerformerIdentifier.App        \# \[WinUI 3\] The Presentation Layer  
-│       ├── Views/                     \# XAML Windows and UserControls  
+│   └── PerformerIdentifier.App        \# \[Avalonia UI\] The Presentation Layer  
+│       ├── Views/                     \# AXAML Windows and UserControls  
 │       ├── ViewModels/                \# UI Logic and State  
 │       └── Assets/                    \# Icons and default images  
 │  
@@ -259,7 +259,7 @@ PerformerIdentifier.sln
 
 ## **GitHub**
 
-* **Repo:** https://github.com/intel-agency/PerformerIdentifier  
+* **Repo:** https://github.com/nam20485/PerformerIdentifier-Docs-delta99-a  
 * **Visibility:** Public  
 * **Branch Strategy:**  
   * main: The stable, production-ready code.  
