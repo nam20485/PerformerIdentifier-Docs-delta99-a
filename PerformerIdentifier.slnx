@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PerformerIdentifier.App/PerformerIdentifier.App.csproj" />
+    <Project Path="src/PerformerIdentifier.Core/PerformerIdentifier.Core.csproj" />
+    <Project Path="src/PerformerIdentifier.Windows/PerformerIdentifier.Windows.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PerformerIdentifier.IntegrationTests/PerformerIdentifier.IntegrationTests.csproj" />
+    <Project Path="tests/PerformerIdentifier.Tests/PerformerIdentifier.Tests.csproj" />
+  </Folder>
+</Solution>
