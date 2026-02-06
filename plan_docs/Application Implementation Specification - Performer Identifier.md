@@ -67,10 +67,10 @@ The application architecture is strictly governed by the **Dependency Rule** (Cl
 
 ## **Document Links**
 
-* [01-Development-Plan.md](https://www.google.com/search?q=./01-Development-Plan.md) \- Comprehensive 22-day timeline, detailed task breakdown, and success criteria.  
-* [02-Architecture-Guide.md](https://www.google.com/search?q=./02-Architecture-Guide.md) \- In-depth system design patterns, layer definitions, and dependency flow diagrams.  
-* [03-Model-Acquisition-Guide.md](https://www.google.com/search?q=./03-Model-Acquisition-Guide.md) \- Step-by-step instructions for sourcing, verifying, and optimizing the necessary ONNX models.  
-* [Complete Code Reference.md](https://www.google.com/search?q=./Complete%2520Code%2520Reference.md) \- Full, copy-paste ready source code for all 14 core components of the system.
+* [01-Development-Plan.md](./01-Development-Plan.md) \- Comprehensive 22-day timeline, detailed task breakdown, and success criteria.  
+* [02-Architecture-Guide.md](./02-Architecture-Guide.md) \- In-depth system design patterns, layer definitions, and dependency flow diagrams.  
+* [03-Model-Acquisition-Guide.md](./03-Model-Acquisition-Guide.md) \- Step-by-step instructions for sourcing, verifying, and optimizing the necessary ONNX models.  
+* [Complete Code Reference.md](./Complete%2520Code%2520Reference.md) \- Full, copy-paste ready source code for all 14 core components of the system.
 
 ## **Requirements**
 
